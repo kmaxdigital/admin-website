@@ -14,7 +14,7 @@ class CreateHomeSectionsTable extends Migration
     public function up()
     {
         Schema::create('home_sections', function (Blueprint $table) {
-            $table->integer('id')->primary();
+            $table->id();
             $table->string('section_name', 500);
             $table->string('section_slug');
             $table->string('post_type')->nullable();

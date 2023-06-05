@@ -14,7 +14,7 @@ class CreateActorDirectorTable extends Migration
     public function up()
     {
         Schema::create('actor_director', function (Blueprint $table) {
-            $table->integer('id')->primary();
+            $table->id();
             $table->string('ad_type')->nullable();
             $table->string('ad_name', 60);
             $table->string('ad_slug');

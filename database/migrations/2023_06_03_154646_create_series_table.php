@@ -14,7 +14,7 @@ class CreateSeriesTable extends Migration
     public function up()
     {
         Schema::create('series', function (Blueprint $table) {
-            $table->integer('id')->primary();
+            $table->id();
             $table->integer('series_lang_id');
             $table->text('series_genres');
             $table->integer('upcoming')->default(0);

@@ -14,7 +14,7 @@ class CreateSettingsPlayerTable extends Migration
     public function up()
     {
         Schema::create('settings_player', function (Blueprint $table) {
-            $table->integer('id')->primary();
+            $table->id();
             $table->string('player_style')->nullable();
             $table->string('player_watermark')->nullable();
             $table->string('player_logo')->nullable();

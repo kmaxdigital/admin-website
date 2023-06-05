@@ -14,7 +14,7 @@ class CreateSportsCategoryTable extends Migration
     public function up()
     {
         Schema::create('sports_category', function (Blueprint $table) {
-            $table->integer('id')->primary();
+            $table->id();
             $table->string('category_name');
             $table->string('category_slug');
             $table->integer('status');

@@ -14,7 +14,7 @@ class CreateWatchlistTable extends Migration
     public function up()
     {
         Schema::create('watchlist', function (Blueprint $table) {
-            $table->bigInteger('id')->primary();
+            $table->id();
             $table->integer('user_id');
             $table->morphs('post');
         });

@@ -14,7 +14,7 @@ class CreateChannelsListTable extends Migration
     public function up()
     {
         Schema::create('channels_list', function (Blueprint $table) {
-            $table->integer('id')->primary();
+            $table->id();
             $table->integer('channel_cat_id');
             $table->string('channel_access')->default('Paid');
             $table->string('channel_name');
