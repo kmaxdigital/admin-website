@@ -14,7 +14,7 @@ class CreateAppAdsTable extends Migration
     public function up()
     {
         Schema::create('app_ads', function (Blueprint $table) {
-            $table->integer('id')->primary();
+            $table->id();
             $table->string('ads_name')->nullable();
             $table->text('ads_info')->nullable();
             $table->integer('status')->default(0);

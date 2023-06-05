@@ -14,7 +14,7 @@ class CreateTransactionTable extends Migration
     public function up()
     {
         Schema::create('transaction', function (Blueprint $table) {
-            $table->bigInteger('id')->primary();
+            $table->id();
             $table->integer('user_id');
             $table->string('email')->nullable();
             $table->integer('plan_id')->nullable();

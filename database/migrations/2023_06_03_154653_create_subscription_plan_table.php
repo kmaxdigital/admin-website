@@ -14,7 +14,7 @@ class CreateSubscriptionPlanTable extends Migration
     public function up()
     {
         Schema::create('subscription_plan', function (Blueprint $table) {
-            $table->integer('id')->primary();
+            $table->id();
             $table->string('plan_name');
             $table->integer('plan_days');
             $table->string('plan_duration');

@@ -14,7 +14,7 @@ class CreateSettingsAndroidAppTable extends Migration
     public function up()
     {
         Schema::create('settings_android_app', function (Blueprint $table) {
-            $table->integer('id')->primary();
+            $table->id();
             $table->string('app_name');
             $table->string('app_logo')->nullable();
             $table->string('app_version')->nullable();

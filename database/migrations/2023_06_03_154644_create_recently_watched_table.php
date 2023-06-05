@@ -14,7 +14,7 @@ class CreateRecentlyWatchedTable extends Migration
     public function up()
     {
         Schema::create('recently_watched', function (Blueprint $table) {
-            $table->integer('id')->primary();
+            $table->id();
             $table->integer('user_id');
             $table->morphs('video');
         });
