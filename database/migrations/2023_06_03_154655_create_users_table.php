@@ -16,7 +16,7 @@ class CreateUsersTable extends Migration
         Schema::dropIfExists('users');
 
         Schema::create('users', function (Blueprint $table) {
-            $table->integer('id')->primary();
+            $table->id();
             $table->string('usertype')->default('User');
             $table->integer('login_status')->default(0);
             $table->string('google_id')->nullable();
