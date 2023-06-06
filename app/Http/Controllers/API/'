@@ -42,7 +42,7 @@ use URL;
 use Illuminate\Support\Facades\Password;
 use Carbon\Carbon;
 use Mail; 
- 
+use Log;
 use Razorpay\Api\Api;
 use Razorpay\Api\Errors\SignatureVerificationError;
 
@@ -97,6 +97,11 @@ class AndroidApiController extends MainAPIController
 
         $settings = SettingsAndroidApp::findOrFail('1'); 
 
+
+	//	Log::info('====================');
+	print_r($settings);
+	
+
         $app_name=$settings->app_name;
         $app_logo=\URL::to('/'.$settings->app_logo);
         $app_version=$settings->app_version?$settings->app_version:'';
@@ -137,7 +142,7 @@ class AndroidApiController extends MainAPIController
         $menu_livetv=$web_settings->menu_livetv?"true":"false";
           
 
-        $app_package_name=env('BUYER_APP_PACKAGE_NAME')?env('BUYER_APP_PACKAGE_NAME'):"com.kmaxdigital.kmaxdigital";
+        $app_package_name=env('BUYER_APP_PACKAGE_NAME')?env('BUYER_APP_PACKAGE_NAME'):"";
 
         $response[] = array('app_package_name'=>$app_package_name,'app_name' => $app_name,'app_logo' => $app_logo,'app_version' => $app_version,'app_company' => $app_company,'app_email' => $app_email,'app_website' => $app_website,'app_contact' => $app_contact,'app_about' => $app_about,'app_privacy' => $app_privacy,'app_terms'=>$app_terms,'ads_list'=>$ads_obj,'app_update_hide_show' => $app_update_hide_show,'app_update_version_code' => $app_update_version_code,'app_update_desc' => $app_update_desc,'app_update_link' => $app_update_link,'app_update_cancel_option' => $app_update_cancel_option,'menu_shows'=>$menu_shows,'menu_movies'=>$menu_movies,'menu_sports'=>$menu_sports,'menu_livetv'=>$menu_livetv,'success'=>'1');
 

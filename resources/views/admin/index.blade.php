@@ -8,9 +8,9 @@
   <meta name="author" content="Viaviwebtech">
   
   @if(getcong('site_favicon'))
-  <link rel="shortcut icon" href="{{ URL::asset('/'.getcong('site_favicon')) }}">
+  <link rel="shortcut icon" href="{{ secure_asset('/'.getcong('site_favicon')) }}">
   @else
-  <link rel="shortcut icon" href="{{ URL::asset('site_assets/images/favicon.png') }}">
+  <link rel="shortcut icon" href="{{ secure_asset('site_assets/images/favicon.png') }}">
   @endif
   <title>{{getcong('site_name')}} Admin</title>
 
@@ -18,16 +18,16 @@
   @if(getcong('external_css_js')=="CDN")
 
   <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-  <link href="{{ URL::asset('admin_assets/css/icons.css') }}" rel="stylesheet" type="text/css" />
-  <link href="{{ URL::asset('admin_assets/css/style.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ secure_asset('admin_assets/css/icons.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ secure_asset('admin_assets/css/style.css') }}" rel="stylesheet" type="text/css" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-  <script src="{{ URL::asset('admin_assets/js/modernizr.min.js') }}"></script>
+  <script src="{{ secure_asset('admin_assets/js/modernizr.min.js') }}"></script>
   @else
-  <link href="{{ URL::asset('admin_assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
-  <link href="{{ URL::asset('admin_assets/css/icons.css') }}" rel="stylesheet" type="text/css" />
-  <link href="{{ URL::asset('admin_assets/css/style.css') }}" rel="stylesheet" type="text/css" />
-  <link href="{{ URL::asset('admin_assets/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
-  <script src="{{ URL::asset('admin_assets/js/modernizr.min.js') }}"></script>
+  <link href="{{ secure_asset('admin_assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ secure_asset('admin_assets/css/icons.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ secure_asset('admin_assets/css/style.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ secure_asset('admin_assets/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
+  <script src="{{ secure_asset('admin_assets/js/modernizr.min.js') }}"></script>
   @endif
   
 </head>
@@ -100,20 +100,20 @@
 
   @if(getcong('external_css_js')=="CDN")
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="{{ URL::asset('admin_assets/js/popper.min.js') }}"></script>
+  <script src="{{ secure_asset('admin_assets/js/popper.min.js') }}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script> 
 
   @else  
-  <script src="{{ URL::asset('admin_assets/js/jquery.min.js') }}"></script>
-  <script src="{{ URL::asset('admin_assets/js/popper.min.js') }}"></script>
-  <script src="{{ URL::asset('admin_assets/js/bootstrap.min.js') }}"></script>  
+  <script src="{{ secure_asset('admin_assets/js/jquery.min.js') }}"></script>
+  <script src="{{ secure_asset('admin_assets/js/popper.min.js') }}"></script>
+  <script src="{{ secure_asset('admin_assets/js/bootstrap.min.js') }}"></script>  
   @endif
      
   
 
   <!-- App js -->
-  <script src="{{ URL::asset('admin_assets/js/jquery.core.js') }}"></script>
-  <script src="{{ URL::asset('admin_assets/js/jquery.app.js') }}"></script>
+  <script src="{{ secure_asset('admin_assets/js/jquery.core.js') }}"></script>
+  <script src="{{ secure_asset('admin_assets/js/jquery.app.js') }}"></script>
 </body>
 
 </html>

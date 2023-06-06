@@ -19,10 +19,10 @@
 <meta property="og:image:height" content="1024" />
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="@yield('head_image', URL::asset('/'.getcong('site_logo')))">
-<link rel="image_src" href="@yield('head_image', URL::asset('/'.getcong('site_logo')))">
+<link rel="image_src" href="@yield('head_image', secure_asset('/'.getcong('site_logo')))">
 
 <!-- Favicon -->
-<link rel="icon" href="{{ URL::asset('/'.getcong('site_favicon')) }}">
+<link rel="icon" href="{{ secure_asset('/'.getcong('site_favicon')) }}">
 
 @if(getcong('external_css_js')=="CDN")
 
@@ -30,30 +30,45 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.0/css/nice-select.css">
-<link rel="stylesheet" href="{{ URL::asset('site_assets/css/megamenu.css') }}">
-<link rel="stylesheet" href="{{ URL::asset('site_assets/css/ionicons.css') }}">
-<link rel="stylesheet" href="{{ URL::asset('site_assets/css/font-awesome.min.css') }}">
+
+<!--<link rel="stylesheet" href="{{ URL::asset('site_assets/css/megamenu.css') }}">-->
+<link rel="stylesheet" href="{{ secure_asset('site_assets/css/megamenu.css') }}">
+
+<!--<link rel="stylesheet" href="{{ URL::asset('site_assets/css/ionicons.css') }}">-->
+<link rel="stylesheet" href="{{ secure_asset('site_assets/css/ionicons.css') }}">
+
+<!--<link rel="stylesheet" href="{{ URL::asset('site_assets/css/font-awesome.min.css') }}">-->
+<link rel="stylesheet" href="{{ secure_asset('site_assets/css/font-awesome.min.css') }}">
+
 
 @else
 
 <!-- LOAD LOCAL CSS -->
-<link rel="stylesheet" href="{{ URL::asset('site_assets/css/bootstrap.min.css') }}">
+<!--<link rel="stylesheet" href="{{ URL::asset('site_assets/css/bootstrap.min.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('site_assets/css/owl.carousel.min.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('site_assets/css/nice-select.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('site_assets/css/megamenu.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('site_assets/css/ionicons.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('site_assets/css/font-awesome.min.css') }}">
+-->
+
+<link rel="stylesheet" href="{{ secure_asset('site_assets/css/bootstrap.min.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('site_assets/css/owl.carousel.min.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('site_assets/css/nice-select.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('site_assets/css/megamenu.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('site_assets/css/ionicons.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('site_assets/css/font-awesome.min.css') }}">
 
 @endif
    
-<link rel="stylesheet" href="{{ URL::asset('site_assets/css/color-style/'.getcong('styling').'.css') }}" id="theme">
+<link rel="stylesheet" href="{{ secure_asset('site_assets/css/color-style/'.getcong('styling').'.css') }}" id="theme">
 
-<link rel="stylesheet" href="{{ URL::asset('site_assets/css/responsive.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('site_assets/css/responsive.css') }}">
 
 <!-- Splide Slider CSS -->
-<link rel="stylesheet" href="{{ URL::asset('site_assets/css/splide.min.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('site_assets/css/splide.min.css') }}">
 
-<link rel="stylesheet" href="{{ URL::asset('site_assets/css/jquery-eu-cookie-law-popup.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('site_assets/css/jquery-eu-cookie-law-popup.css') }}">
 
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800&display=swap" rel="stylesheet">
@@ -147,27 +162,27 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"></script> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.0/js/jquery.nice-select.min.js"></script>  
-<script src="{{ URL::asset('site_assets/js/megamenu.js') }}"></script>  
+<script src="{{ URL::secure_asset('site_assets/js/megamenu.js') }}"></script>  
   
 @else
   
   <!-- Load Local JS --> 
-<script src="{{ URL::asset('site_assets/js/jquery-3.3.1.min.js') }}"></script> 
-<script src="{{ URL::asset('site_assets/js/jquery.easing.min.js') }}"></script> 
-<script src="{{ URL::asset('site_assets/js/bootstrap.min.js') }}"></script> 
-<script src="{{ URL::asset('site_assets/js/owl.carousel.min.js') }}"></script>
-<script src="{{ URL::asset('site_assets/js/jquery.nice-select.min.js') }}"></script>  
-<script src="{{ URL::asset('site_assets/js/megamenu.js') }}"></script> 
+<script src="{{ secure_asset('site_assets/js/jquery-3.3.1.min.js') }}"></script> 
+<script src="{{ secure_asset('site_assets/js/jquery.easing.min.js') }}"></script> 
+<script src="{{ secure_asset('site_assets/js/bootstrap.min.js') }}"></script> 
+<script src="{{ secure_asset('site_assets/js/owl.carousel.min.js') }}"></script>
+<script src="{{ secure_asset('site_assets/js/jquery.nice-select.min.js') }}"></script>  
+<script src="{{ secure_asset('site_assets/js/megamenu.js') }}"></script> 
 
 @endif
  
 <!-- Splide Slider JS -->
-<script src="{{ URL::asset('site_assets/js/splide.min.js') }}"></script>
+<script src="{{ secure_asset('site_assets/js/splide.min.js') }}"></script>
 
 <!-- Custom Main JS -->
-<script src="{{ URL::asset('site_assets/js/custom-main.js') }}"></script>
+<script src="{{ secure_asset('site_assets/js/custom-main.js') }}"></script>
 
-<script src="{{ URL::asset('site_assets/js/jquery-eu-cookie-law-popup.js') }}"></script> 
+<script src="{{ secure_asset('site_assets/js/jquery-eu-cookie-law-popup.js') }}"></script> 
 
 <script type="text/javascript">
   
