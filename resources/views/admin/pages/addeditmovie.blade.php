@@ -602,7 +602,8 @@ function processSelectedFile(filePath, requestingField) {
 
     //alert(requestingField);
 
-    var elfinderUrl = "{{ URL::to('/') }}/";
+	    var elfinderUrl = "{{ URL::to('/') }}/";
+	//var elfinderUrl = "https://kmax.digital/"
 
     if(requestingField=="video_image_thumb")
     {
