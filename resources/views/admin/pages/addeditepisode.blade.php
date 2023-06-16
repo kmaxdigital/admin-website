@@ -245,7 +245,7 @@
                                 <option value="Local" @if(isset($episode_info->video_type) AND $episode_info->video_type=="Local") selected @endif>Local</option>
                                 <option value="URL" @if(isset($episode_info->video_type) AND $episode_info->video_type=="URL") selected @endif>URL</option>
                                 <option value="Embed" @if(isset($episode_info->video_type) AND $episode_info->video_type=="Embed") selected @endif>Embed Code</option>
-                                <option value="HLS" @if(isset($episode_info->video_type) AND $episode_info->video_type=="HLS") selected @endif>HLS/m3u8</option>
+<!--                                <option value="HLS" @if(isset($episode_info->video_type) AND $episode_info->video_type=="HLS") selected @endif>HLS/m3u8</option>-->
                                 <option value="DASH" @if(isset($episode_info->video_type) AND $episode_info->video_type=="DASH") selected @endif>MPEG-DASH</option>                            
                             </select>
                       </div>
