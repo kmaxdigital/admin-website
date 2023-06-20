@@ -6,43 +6,43 @@
   <meta name="description" content="{{getcong('site_name')}} Admin">
   <meta name="author" content="Viaviwebtech">
   @if(getcong('site_favicon'))
-  <link rel="shortcut icon" href="{{ secure_asset('/'.getcong('site_favicon')) }}">
+  <link rel="shortcut icon" href="{{ URL::asset('/'.getcong('site_favicon')) }}">
   @else
-  <link rel="shortcut icon" href="{{ secure_asset('site_assets/images/favicon.png') }}">
+  <link rel="shortcut icon" href="{{ URL::asset('site_assets/images/favicon.png') }}">
   @endif
   <title>{{getcong('site_name')}} Admin</title>
 
   <!--Morris Chart CSS -->
- <link rel="stylesheet" href="{{ secure_asset('admin_assets/plugins/morris/morris.css') }}">
+ <link rel="stylesheet" href="{{ URL::asset('admin_assets/plugins/morris/morris.css') }}">
 
   @if(getcong('external_css_js')=="CDN")
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="{{ secure_asset('admin_assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
-     <link href="{{ secure_asset('admin_assets/css/icons.css') }}" rel="stylesheet" type="text/css" />
-     <link href="{{ secure_asset('admin_assets/plugins/multiselect/css/multi-select.css') }}" rel="stylesheet" type="text/css" />
-     <link href="{{ secure_asset('admin_assets/plugins/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
-     <link href="{{ secure_asset('admin_assets/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}" rel="stylesheet">
-     <link href="{{ secure_asset('admin_assets/plugins/switchery/switchery.min.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('admin_assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+     <link href="{{ URL::asset('admin_assets/css/icons.css') }}" rel="stylesheet" type="text/css" />
+     <link href="{{ URL::asset('admin_assets/plugins/multiselect/css/multi-select.css') }}" rel="stylesheet" type="text/css" />
+     <link href="{{ URL::asset('admin_assets/plugins/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
+     <link href="{{ URL::asset('admin_assets/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}" rel="stylesheet">
+     <link href="{{ URL::asset('admin_assets/plugins/switchery/switchery.min.css') }}" rel="stylesheet">
      
-     <link href="{{ secure_asset('admin_assets/css/style.css') }}" rel="stylesheet" type="text/css" />
+     <link href="{{ URL::asset('admin_assets/css/style.css') }}" rel="stylesheet" type="text/css" />
       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />  
 
-     <script src="{{ secure_asset('admin_assets/js/modernizr.min.js') }}"></script>
+     <script src="{{ URL::asset('admin_assets/js/modernizr.min.js') }}"></script>
 
   @else
-     <link href="{{ secure_asset('admin_assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
-     <link href="{{ secure_asset('admin_assets/css/icons.css') }}" rel="stylesheet" type="text/css" />
-     <link href="{{ secure_asset('admin_assets/plugins/multiselect/css/multi-select.css') }}" rel="stylesheet" type="text/css" />
-     <link href="{{ secure_asset('admin_assets/plugins/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
-     <link href="{{ secure_asset('admin_assets/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}" rel="stylesheet">
+     <link href="{{ URL::asset('admin_assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+     <link href="{{ URL::asset('admin_assets/css/icons.css') }}" rel="stylesheet" type="text/css" />
+     <link href="{{ URL::asset('admin_assets/plugins/multiselect/css/multi-select.css') }}" rel="stylesheet" type="text/css" />
+     <link href="{{ URL::asset('admin_assets/plugins/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
+     <link href="{{ URL::asset('admin_assets/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}" rel="stylesheet">
 
-     <link href="{{ secure_asset('admin_assets/plugins/switchery/switchery.min.css') }}" rel="stylesheet">
+     <link href="{{ URL::asset('admin_assets/plugins/switchery/switchery.min.css') }}" rel="stylesheet">
 
-     <link href="{{ secure_asset('admin_assets/css/style.css') }}" rel="stylesheet" type="text/css" />
-      <link href="{{ secure_asset('admin_assets/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />  
+     <link href="{{ URL::asset('admin_assets/css/style.css') }}" rel="stylesheet" type="text/css" />
+      <link href="{{ URL::asset('admin_assets/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />  
 
-     <script src="{{ secure_asset('admin_assets/js/modernizr.min.js') }}"></script>
+     <script src="{{ URL::asset('admin_assets/js/modernizr.min.js') }}"></script>
   @endif
 
   <!-- App css -->
@@ -66,42 +66,42 @@
 
   @if(getcong('external_css_js')=="CDN")
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="{{ secure_asset('admin_assets/js/popper.min.js') }}"></script>
+  <script src="{{ URL::asset('admin_assets/js/popper.min.js') }}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script> 
 
   @else  
-  <script src="{{ secure_asset('admin_assets/js/jquery.min.js') }}"></script>
-  <script src="{{ secure_asset('admin_assets/js/popper.min.js') }}"></script>
-  <script src="{{ secure_asset('admin_assets/js/bootstrap.min.js') }}"></script>  
+  <script src="{{ URL::asset('admin_assets/js/jquery.min.js') }}"></script>
+  <script src="{{ URL::asset('admin_assets/js/popper.min.js') }}"></script>
+  <script src="{{ URL::asset('admin_assets/js/bootstrap.min.js') }}"></script>  
   @endif
          
   
-  <script src="{{ secure_asset('admin_assets/js/detect.js') }}"></script>
-  <script src="{{ secure_asset('admin_assets/js/fastclick.js') }}"></script>
-  <script src="{{ secure_asset('admin_assets/js/jquery.blockUI.js') }}"></script>
-  <script src="{{ secure_asset('admin_assets/js/waves.js') }}"></script>
-  <script src="{{ secure_asset('admin_assets/js/jquery.nicescroll.js') }}"></script>
-  <script src="{{ secure_asset('admin_assets/js/jquery.slimscroll.js') }}"></script>
-  <script src="{{ secure_asset('admin_assets/js/jquery.scrollTo.min.js') }}"></script>
-  <script src="{{ secure_asset('admin_assets/plugins/switchery/switchery.min.js') }}"></script>
-  <script src="{{ secure_asset('admin_assets/plugins/tinymce/tinymce.min.js') }}"></script>
+  <script src="{{ URL::asset('admin_assets/js/detect.js') }}"></script>
+  <script src="{{ URL::asset('admin_assets/js/fastclick.js') }}"></script>
+  <script src="{{ URL::asset('admin_assets/js/jquery.blockUI.js') }}"></script>
+  <script src="{{ URL::asset('admin_assets/js/waves.js') }}"></script>
+  <script src="{{ URL::asset('admin_assets/js/jquery.nicescroll.js') }}"></script>
+  <script src="{{ URL::asset('admin_assets/js/jquery.slimscroll.js') }}"></script>
+  <script src="{{ URL::asset('admin_assets/js/jquery.scrollTo.min.js') }}"></script>
+  <script src="{{ URL::asset('admin_assets/plugins/switchery/switchery.min.js') }}"></script>
+  <script src="{{ URL::asset('admin_assets/plugins/tinymce/tinymce.min.js') }}"></script>
   
 
-  <script src="{{ secure_asset('admin_assets/plugins/jquery-knob/jquery.knob.js') }}"></script>
-  <script src="{{ secure_asset('admin_assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
+  <script src="{{ URL::asset('admin_assets/plugins/jquery-knob/jquery.knob.js') }}"></script>
+  <script src="{{ URL::asset('admin_assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
  
-  <script type="text/javascript" src="{{ secure_asset('admin_assets/plugins/multiselect/js/jquery.multi-select.js') }}"></script>
-  <script src="{{ secure_asset('admin_assets/plugins/select2/js/select2.min.js') }}" type="text/javascript"></script>
+  <script type="text/javascript" src="{{ URL::asset('admin_assets/plugins/multiselect/js/jquery.multi-select.js') }}"></script>
+  <script src="{{ URL::asset('admin_assets/plugins/select2/js/select2.min.js') }}" type="text/javascript"></script>
   
   @if(classActivePath('dashboard'))
   <!-- Counter Up  -->
-  <script src="{{ secure_asset('admin_assets/plugins/waypoints/jquery.waypoints.min.js') }}"></script>
-  <script src="{{ secure_asset('admin_assets/plugins/counterup/jquery.counterup.min.js') }}"></script>
+  <script src="{{ URL::asset('admin_assets/plugins/waypoints/jquery.waypoints.min.js') }}"></script>
+  <script src="{{ URL::asset('admin_assets/plugins/counterup/jquery.counterup.min.js') }}"></script>
   @endif
 
   <!-- App js -->
-   <script src="{{ secure_asset('admin_assets/js/jquery.core.js') }}"></script>
-   <script src="{{ secure_asset('admin_assets/js/jquery.app.js') }}"></script>
+   <script src="{{ URL::asset('admin_assets/js/jquery.core.js') }}"></script>
+   <script src="{{ URL::asset('admin_assets/js/jquery.app.js') }}"></script>
 
 <script type="text/javascript">
     $(document).ready(function () {
@@ -829,11 +829,11 @@ $("#upcoming").change(function(){
 
 </script>
 
-<link rel="stylesheet" href="{{secure_asset('packages')}}/barryvdh/elfinder/css/colorbox.css">
+<link rel="stylesheet" href="{{URL::asset('packages')}}/barryvdh/elfinder/css/colorbox.css">
 
  
-<script src="{{secure_asset('packages')}}/barryvdh/elfinder/js/jquery.colorbox.js"></script>
-<script type="text/javascript" src="{{secure_asset('packages')}}/barryvdh/elfinder/js/jquery.colorbox-min.js"></script>
+<script src="{{URL::asset('packages')}}/barryvdh/elfinder/js/jquery.colorbox.js"></script>
+<script type="text/javascript" src="{{URL::asset('packages')}}/barryvdh/elfinder/js/jquery.colorbox-min.js"></script>
 
 
 <script type="text/javascript">
