@@ -829,11 +829,11 @@ $("#upcoming").change(function(){
 
 </script>
 
-<link rel="stylesheet" href="{{url('packages')}}/barryvdh/elfinder/css/colorbox.css">
+<link rel="stylesheet" href="{{URL::asset('packages')}}/barryvdh/elfinder/css/colorbox.css">
 
  
-<script src="{{url('packages')}}/barryvdh/elfinder/js/jquery.colorbox.js"></script>
-<script type="text/javascript" src="{{url('packages')}}/barryvdh/elfinder/js/jquery.colorbox-min.js"></script>
+<script src="{{URL::asset('packages')}}/barryvdh/elfinder/js/jquery.colorbox.js"></script>
+<script type="text/javascript" src="{{URL::asset('packages')}}/barryvdh/elfinder/js/jquery.colorbox-min.js"></script>
 
 
 <script type="text/javascript">

@@ -30,13 +30,28 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.0/css/nice-select.css">
+
+<!--<link rel="stylesheet" href="{{ URL::asset('site_assets/css/megamenu.css') }}">-->
 <link rel="stylesheet" href="{{ URL::asset('site_assets/css/megamenu.css') }}">
+
+<!--<link rel="stylesheet" href="{{ URL::asset('site_assets/css/ionicons.css') }}">-->
 <link rel="stylesheet" href="{{ URL::asset('site_assets/css/ionicons.css') }}">
+
+<!--<link rel="stylesheet" href="{{ URL::asset('site_assets/css/font-awesome.min.css') }}">-->
 <link rel="stylesheet" href="{{ URL::asset('site_assets/css/font-awesome.min.css') }}">
+
 
 @else
 
 <!-- LOAD LOCAL CSS -->
+<!--<link rel="stylesheet" href="{{ URL::asset('site_assets/css/bootstrap.min.css') }}">
+<link rel="stylesheet" href="{{ URL::asset('site_assets/css/owl.carousel.min.css') }}">
+<link rel="stylesheet" href="{{ URL::asset('site_assets/css/nice-select.css') }}">
+<link rel="stylesheet" href="{{ URL::asset('site_assets/css/megamenu.css') }}">
+<link rel="stylesheet" href="{{ URL::asset('site_assets/css/ionicons.css') }}">
+<link rel="stylesheet" href="{{ URL::asset('site_assets/css/font-awesome.min.css') }}">
+-->
+
 <link rel="stylesheet" href="{{ URL::asset('site_assets/css/bootstrap.min.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('site_assets/css/owl.carousel.min.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('site_assets/css/nice-select.css') }}">
@@ -147,7 +162,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"></script> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.0/js/jquery.nice-select.min.js"></script>  
-<script src="{{ URL::asset('site_assets/js/megamenu.js') }}"></script>  
+<script src="{{ URL::URL::asset('site_assets/js/megamenu.js') }}"></script>  
   
 @else
   
