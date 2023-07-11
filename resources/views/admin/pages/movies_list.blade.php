@@ -47,6 +47,7 @@
                       <th>{{trans('words.upcoming')}}</th>
                       <th>{{trans('words.is_verified')}}</th>
                       <th>{{trans('words.is_processed')}}</th>
+                      <th>{{trans('words.is_uploaded')}}</th>
                       <th>{{trans('words.status')}}</th>                       
                       <th>{{trans('words.action')}}</th>
                     </tr>
@@ -54,7 +55,7 @@
                   <tbody>
                    @foreach($movies_list as $i => $movies)
                     <tr>
-                      <td>{{ stripslashes($movies->video_title) }}</td>
+                      <td>{{ stripslashes($movies->video_title) }} [{{ $movies->id }}]</td>
                       <td>@if(isset($movies->video_image_thumb)) <img src="{{URL::to('/'.$movies->video_image_thumb)}}" alt="video image" class="thumb-lg bdr_radius"> @endif</td>
                       <td>{{ $movies->video_access }}</td>
                       
@@ -76,6 +77,15 @@
                       
                       <td>
                         @if($movies->is_processed==1)
+                          <span class="badge badge-success">
+                            Yes</span> 
+                        @else<span class="badge badge-danger">
+                            No
+                          </span>
+                        @endif
+                      </td>
+                      <td>
+                        @if($movies->is_upload=='yes')
                           <span class="badge badge-success">
                             Yes</span> 
                         @else<span class="badge badge-danger">

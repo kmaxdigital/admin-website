@@ -207,7 +207,8 @@ return [
     */
 
     'is_processed' => 'Is Process',    
-    'is_verified' => 'Is verify',    
+    'is_verified' => 'Is Verify',    
+    'is_uploaded' => 'S3 Uploaded',    
 
     //*******Web Side************/
 
