@@ -209,6 +209,11 @@ return [
     'is_processed' => 'Is Process',    
     'is_verified' => 'Is Verify',    
     'is_uploaded' => 'S3 Uploaded',    
+    'is_processed_yes' => 'Yes',    
+    'is_processed_no' => 'No',  
+    'pending'=> 'Pending',
+    'inprocess'=> 'Inprocess',
+    'verified'=> 'Verified',
 
     //*******Web Side************/
 
