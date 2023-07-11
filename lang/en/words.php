@@ -199,6 +199,16 @@ return [
     'stripe_secret_key' => 'Stripe Secret Key',
 
 
+    /*
+
+    Process
+
+
+    */
+
+    'is_processed' => 'Is Process',    
+    'is_verified' => 'Is verify',    
+
     //*******Web Side************/
 
     //Header
