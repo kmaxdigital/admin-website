@@ -236,7 +236,8 @@
                   <div class="form-group row">
                     <label class="col-sm-3 col-form-label">{{trans('words.is_processed')}}</label>
                       <div class="col-sm-8">
-                            <select class="form-control" name="is_processed">                               
+                            <select class="form-control" name="is_processed" required>
+                                <option value="">{{trans('words.select')}}</option>
                                 <option value="1" @if(isset($movie->is_processed) AND $movie->is_processed=='1') selected @endif>{{trans('words.is_processed_yes')}}</option>
                                 <option value="0" @if(isset($movie->status) AND $movie->status==0) selected @endif>{{trans('words.is_processed_no')}}</option>                            
                             </select>
@@ -246,7 +247,8 @@
                   <div class="form-group row">
                     <label class="col-sm-3 col-form-label">{{trans('words.is_verified')}}</label>
                       <div class="col-sm-8">
-                            <select class="form-control" name="is_verified">                               
+                            <select class="form-control" name="is_verified" required>                               
+                                <option value="">{{trans('words.select')}}</option>
                                 <option value="pending" @if(isset($movie->is_verified) AND $movie->is_verified=='pending') selected @endif>{{trans('words.pending')}}</option>
                                 <option value="inprocess" @if(isset($movie->is_verified) AND $movie->is_verified=='inprocess') selected @endif>{{trans('words.inprocess')}}</option>                           
                                 <option value="verified" @if(isset($movie->is_verified) AND $movie->is_verified=='verified') selected @endif>{{trans('words.verified')}}</option>
