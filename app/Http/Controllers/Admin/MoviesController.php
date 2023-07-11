@@ -61,7 +61,7 @@ class MoviesController extends MainAdminController
         } 
 
 
-        dd($movies_list);
+        // dd($movies_list);
          
         return view('admin.pages.movies_list',compact('page_title','movies_list','language_list'));
     }
