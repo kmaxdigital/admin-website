@@ -64,13 +64,13 @@
                       <td>
                         @if($movies->is_verify=='verified')
                           <span class="badge badge-success">
-                            {{ $movies->is_verify }}</span> 
+                            {{trans('words.verified')}}</span> 
                         @elseif($movies->is_verify=='pending')
                           <span class="badge badge-danger">
-                            {{ $movies->is_verify }}
+                            {{trans('words.pending')}}</span> 
                           </span>
                         @else<span class="badge badge-warning">
-                            {{ $movies->is_verify }}
+                            {{trans('words.inprocess')}}</span> 
                           </span>
                         @endif
                       </td>

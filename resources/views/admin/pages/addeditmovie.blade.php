@@ -249,9 +249,12 @@
                       <div class="col-sm-8">
                             <select class="form-control" name="is_verified" required>                               
                                 <option value="">{{trans('words.select')}}</option>
-                                <option value="pending" @if(isset($movie->is_verified) AND $movie->is_verified=='pending') selected @endif>{{trans('words.pending')}}</option>
-                                <option value="inprocess" @if(isset($movie->is_verified) AND $movie->is_verified=='inprocess') selected @endif>{{trans('words.inprocess')}}</option>                           
-                                <option value="verified" @if(isset($movie->is_verified) AND $movie->is_verified=='verified') selected @endif>{{trans('words.verified')}}</option>
+                                <option value="pending" @if(isset($movie->is_verify) AND $movie->is_verify=='pending') selected @endif>{{trans('words.pending')}}</option>
+
+                                <option value="inprocess" @if(isset($movie->is_verify) AND $movie->is_verify=='inprocess') selected @endif>{{trans('words.inprocess')}}</option>
+
+                                <option value="verified" @if(isset($movie->is_verify) AND $movie->is_verify=='verified') selected @endif>{{trans('words.verified')}}</option>
+                                
                             </select>
                       </div>
                   </div>
