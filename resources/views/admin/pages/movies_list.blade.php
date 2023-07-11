@@ -45,8 +45,7 @@
                       <th>{{trans('words.movie_poster')}}</th>
                       <th>{{trans('words.movie_access')}}</th>
                       <th>{{trans('words.upcoming')}}</th>
-                      <th>{{trans('words.is_verified')}}</th>
-                      <th>{{trans('words.is_processed')}}</th>
+                      
                       <th>{{trans('words.status')}}</th>                       
                       <th>{{trans('words.action')}}</th>
                     </tr>
@@ -61,30 +60,6 @@
                       <td>@if($movies->upcoming==1)<span class="badge badge-success">{{trans('words.upcoming_yes')}}</span> @else<span class="badge badge-danger">{{trans('words.upcoming_no')}}</span>@endif</td>
 
 
-                      <td>
-                        @if($movies->is_verify=='verified')
-                          <span class="badge badge-success">
-                            {{ $movies->is_verify }}</span> 
-                        @elseif($movies->is_verify=='pending')
-                          <span class="badge badge-danger">
-                            {{ $movies->is_verify }}
-                          </span>
-                        @else<span class="badge badge-warning">
-                            {{ $movies->is_verify }}
-                          </span>
-                        @endif
-                      </td>
-                      
-                      <td>
-                        @if($movies->is_processed==1)
-                          <span class="badge badge-success">
-                            Yes</span> 
-                        @else<span class="badge badge-danger">
-                            No
-                          </span>
-                        @endif
-                      </td>
-                      
 
 
 
