@@ -62,6 +62,8 @@ class NewMovieVideosHLS extends Command
 
         $videoDetails                               = $this->commonSer->getVideoDetails();
 
+        Log::info("Video Details". json_encode($videoDetails, true));
+
 
         if($videoDetails[$this->status])
         {
