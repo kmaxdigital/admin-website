@@ -115,6 +115,7 @@ class NewMovieVideosHLS extends Command
                 $format->setAdditionalParameters([
                     '-vf', 'scale=' . $dimension->getWidth() . ':' . $dimension->getHeight(),
                     '-hls_time', $this->hls_time,
+                    '-hls_list_size', 0, // Set 0 to include all segments in the playlist
                 ]);
                 $video->save($format, $outputDirectory . 'index.m3u8');
                 $hlsFiles[]                         = $dimension->getHeight() . '/' . 'index.m3u8';
