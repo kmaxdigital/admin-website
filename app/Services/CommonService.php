@@ -100,7 +100,7 @@ class CommonService
 
 
     /*
-        getVideoDetails()
+        updateVideoIsProcessed()
         return result objects
         
     */

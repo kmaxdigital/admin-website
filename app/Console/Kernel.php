@@ -15,6 +15,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         //
         Commands\TaskCron::class,
+        \App\Console\Commands\NewMovieVideosHLS::class,
     ];
 
     /**
@@ -28,6 +29,7 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')->hourly();
 
         $schedule->command('task:cron')->everyMinute();
+        $schedule->command('Video:NewMovieVideosHLS')->everyMinute();
     }
 
     /**
