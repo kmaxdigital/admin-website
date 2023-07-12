@@ -28,7 +28,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
 
-        $schedule->command('task:cron')->everyMinute();
+        // $schedule->command('task:cron')->everyMinute();
         $schedule->command('Video:NewMovieVideosHLS')->dailyAt('12:15');
     }
 

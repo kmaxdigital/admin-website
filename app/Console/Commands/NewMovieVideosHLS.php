@@ -41,6 +41,7 @@ class NewMovieVideosHLS extends Command
         $this->data                                 = 'data';
         $this->total                                = 'total_count';
         $this->hls_time                             = 60;
+        $this->timeout                              = 7200; // Increase timeout to 3600 seconds
         
         $this->commonSer                            = new CommonService();
         $this->awsSer                               = new AWSService();
@@ -88,7 +89,12 @@ class NewMovieVideosHLS extends Command
             $inputVideo                             = $inputFile.$video_id.'.mp4';
             Log::info("INPUT VIDEO NAME = ". $inputVideo);
 
-            $ffmpeg                                 = FFMpeg::create();
+            $ffmpeg                                 = FFMpeg::create([
+                            'ffmpeg.binaries'       => '/usr/bin/ffmpeg',
+                            'ffprobe.binaries'      => '/usr/bin/ffprobe',
+                            'timeout'               => $this->timeout,
+                            'ffmpeg.threads'        => 6, // Adjust based on your server capacity
+            ]);
             
             $video                                  = $ffmpeg->open($inputVideo);
             Log::info("Video = ". json_encode($video, true));
