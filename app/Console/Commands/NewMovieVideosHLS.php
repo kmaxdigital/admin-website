@@ -77,6 +77,9 @@ class NewMovieVideosHLS extends Command
 
             $outputFilename                         = 'output';
 
+            Log::info("INPUT FILE NAME = ". $inputFile);
+            Log::info("OUTPT FILE NAME = ". $outputBaseDirectory);
+
             $awsAccessKey                           = env('AWS_ACCESS_KEY_ID', 'AKIA6AQXIE5GFIC2KZSP');
             $awsSecretKey                           = env('AWS_SECRET_ACCESS_KEY', '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');
             $awsRegion                              = env('AWS_DEFAULT_REGION', 'ap-south-1');
@@ -84,7 +87,9 @@ class NewMovieVideosHLS extends Command
 
             $ffmpeg                                 = FFMpeg::create();
             $inputVideo                             = $inputFile.$video_id.'.mp4';
+            Log::info("INPUT VIDEO NAME = ". $inputVideo);
             $video                                  = $ffmpeg->open($inputVideo);
+            Log::info("Video = ". json_encode($video, true));
             $hlsFiles                               = [];
 
             foreach ($this->dimensions as $index => $dimension) 
@@ -110,6 +115,7 @@ class NewMovieVideosHLS extends Command
 
             
             $masterPlaylistPath                     = $outputBaseDirectory.$video_unique_id.'/' . $outputFilename . '.m3u8';
+            Log::info("masterPlaylistPath = ". $masterPlaylistPath);
             $this->commonSer->generateMasterPlaylist($hlsFiles, $masterPlaylistPath);
 
             if (file_exists($masterPlaylistPath)) 
