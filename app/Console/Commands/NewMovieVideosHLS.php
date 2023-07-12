@@ -40,7 +40,7 @@ class NewMovieVideosHLS extends Command
         $this->code                                 = 'status_code';
         $this->data                                 = 'data';
         $this->total                                = 'total_count';
-        $this->hls_time                             = 10;
+        $this->hls_time                             = 60;
         
         $this->commonSer                            = new CommonService();
         $this->awsSer                               = new AWSService();
@@ -85,9 +85,11 @@ class NewMovieVideosHLS extends Command
             $awsRegion                              = env('AWS_DEFAULT_REGION', 'ap-south-1');
             $awsBucket                              = env('AWS_BUCKET', 'k-max');
 
-            $ffmpeg                                 = FFMpeg::create();
             $inputVideo                             = $inputFile.$video_id.'.mp4';
             Log::info("INPUT VIDEO NAME = ". $inputVideo);
+
+            $ffmpeg                                 = FFMpeg::create();
+            
             $video                                  = $ffmpeg->open($inputVideo);
             Log::info("Video = ". json_encode($video, true));
             $hlsFiles                               = [];
