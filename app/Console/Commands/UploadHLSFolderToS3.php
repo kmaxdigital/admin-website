@@ -81,7 +81,7 @@ class UploadHLSFolderToS3 extends Command
                 echo "uploaded to s3";
 
                 sleep(30);
-                File::deleteDirectory($directory);
+                // File::deleteDirectory($directory);
 
                 $isUplaod                          = $this->commonSer->updateVideoIsUpload($video_id,$video_unique_id);
 

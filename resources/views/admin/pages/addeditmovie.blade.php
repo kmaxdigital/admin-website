@@ -259,6 +259,20 @@
                       </div>
                   </div>
 
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">{{trans('words.is_uploaded')}}</label>
+                      <div class="col-sm-8">
+                            <select class="form-control" name="is_upload" required>                               
+                                <option value="">{{trans('words.select')}}</option>
+                                <option value="yes" @if(isset($movie->is_upload) AND $movie->is_upload=='yes') selected @endif>{{trans('words.is_processed_yes')}}</option>
+
+                                <option value="no" @if(isset($movie->is_upload) AND $movie->is_upload=='no') selected @endif>{{trans('words.is_processed_no')}}</option>
+
+                                
+                            </select>
+                      </div>
+                  </div>
+
                   <hr/>
                   <h4 class="m-t-0 m-b-30 header-title" style="font-size: 20px;">{{trans('words.seo')}}</h4>
                   

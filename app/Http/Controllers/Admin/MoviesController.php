@@ -186,6 +186,7 @@ class MoviesController extends MainAdminController
          $movie_obj->status = $inputs['status'];  
          $movie_obj->is_processed = $inputs['is_processed'];  
          $movie_obj->is_verify = $inputs['is_verified'];  
+         $movie_obj->is_upload = $inputs['is_upload'];  
 
          $movie_obj->seo_title = addslashes($inputs['seo_title']);  
          $movie_obj->seo_description = addslashes($inputs['seo_description']);  
