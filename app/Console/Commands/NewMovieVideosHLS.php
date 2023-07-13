@@ -41,7 +41,7 @@ class NewMovieVideosHLS extends Command
         $this->data                                 = 'data';
         $this->total                                = 'total_count';
         $this->hls_time                             = 60;
-        $this->timeout                              = 7200; // Increase timeout to 3600 seconds
+        $this->timeout                              = 14400; // Increase timeout to 3600 seconds
         
         $this->commonSer                            = new CommonService();
         $this->awsSer                               = new AWSService();
@@ -81,10 +81,10 @@ class NewMovieVideosHLS extends Command
             Log::info("INPUT FILE NAME = ". $inputFile);
             Log::info("OUTPT FILE NAME = ". $outputBaseDirectory);
 
-            $awsAccessKey                           = env('AWS_ACCESS_KEY_ID', 'AKIA6AQXIE5GFIC2KZSP');
-            $awsSecretKey                           = env('AWS_SECRET_ACCESS_KEY', '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');
-            $awsRegion                              = env('AWS_DEFAULT_REGION', 'ap-south-1');
-            $awsBucket                              = env('AWS_BUCKET', 'k-max');
+            // $awsAccessKey                           = env('AWS_ACCESS_KEY_ID', 'AKIA6AQXIE5GFIC2KZSP');
+            // $awsSecretKey                           = env('AWS_SECRET_ACCESS_KEY', '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');
+            // $awsRegion                              = env('AWS_DEFAULT_REGION', 'ap-south-1');
+            // $awsBucket                              = env('AWS_BUCKET', 'k-max');
 
             $inputVideo                             = $inputFile.$video_id.'.mp4';
             Log::info("INPUT VIDEO NAME = ". $inputVideo);

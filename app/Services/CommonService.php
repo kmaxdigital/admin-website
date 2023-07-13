@@ -133,6 +133,36 @@ class CommonService
 
     
 
+    /*
+        updateVideoIsUpload()
+        return result objects
+        
+    */
+    
+    public function updateVideoIsUpload($videoId, $videoUniqueId)
+    {
+        $update                                     = Movies::where('id',$videoId)
+                                                        ->where('unique_id',$videoUniqueId)
+                                                        ->take(1)
+                                                        ->update(['is_upload' => 'yes']);
+        if($update)
+        {
+            
+            $return[$this->status]                  = true;
+            $return[$this->message]                 = 'Successfully status updated..';
+            $return[$this->code]                    = 200;
+            $return[$this->data]                    = [];
+        
+        }
+        else
+        {
+            $return[$this->status]                  = false;
+            $return[$this->message]                 = 'Oops, Problem while update..';
+            $return[$this->code]                    = 201;
+        }
+
+        return $return;
+    }
 
 
 
