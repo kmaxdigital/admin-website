@@ -80,22 +80,22 @@ class UploadHLSFolderToS3 extends Command
                 Log::info("uploadToS3 Success");
                 echo "uploaded to s3";
 
-                // sleep(30);
-                // // File::deleteDirectory($directory);
+                sleep(300);
+                File::deleteDirectory($directory);
 
-                // $isUplaod                          = $this->commonSer->updateVideoIsUpload($video_id,$video_unique_id);
+                $isUplaod                          = $this->commonSer->updateVideoIsUpload($video_id,$video_unique_id);
 
 
-                // if($isUplaod[$this->status])
-                // {
-                //     Log::info("Updated....");
-                //     echo "Updated...";
-                // }
-                // else
-                // {
-                //     Log::info("problem while Update....");
-                //     echo "problem while Update...";
-                // }
+                if($isUplaod[$this->status])
+                {
+                    Log::info("Updated....");
+                    echo "Updated...";
+                }
+                else
+                {
+                    Log::info("problem while Update....");
+                    echo "problem while Update...";
+                }
 
             } else {
                 Log::info("Dir not exists");

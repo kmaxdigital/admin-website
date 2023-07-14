@@ -220,20 +220,6 @@ class AWSService
             echo "Exception";
             // Additional error handling logic
         }
-
-
-        
-
-        // Do something when the transfer is complete using the then() method
-        // $promise->then(function () {
-        //     echo 'Done!';
-        // });
-
-        // $promise->otherwise(function ($reason) {
-        //     echo 'Transfer failed: ';
-        //     var_dump($reason);
-        // });
-
     }
 
 
