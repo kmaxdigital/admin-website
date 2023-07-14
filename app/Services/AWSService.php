@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Log;
 use Validator;
+use Symfony\Component\Finder\SplFileInfo;
 
 
 
@@ -123,7 +124,7 @@ class AWSService
 
 
 
-    public function copyDirectoryContentsToS3($sourceDirectory, $s3Directory)
+    public function old_copyDirectoryContentsToS3($sourceDirectory, $s3Directory)
     {
         Log::info("source Directory = ".$sourceDirectory);
         Log::info("s3Directory = ".$s3Directory);
@@ -136,6 +137,8 @@ class AWSService
                 Log::info("File = ".$file);
                 $relativePath = $s3Directory . '/' . $file->getRelativePathname();
                 Storage::disk('s3')->put($relativePath, file_get_contents($file->getPathname()));
+
+                // Storage::disk('s3')->allFiles($relativePath, file_get_contents($file->getPathname()));
             } catch (S3Exception $e) {
                 // Handle specific S3 exception
                 Log::info('S3Exception: ' . $e->getMessage());
@@ -154,6 +157,82 @@ class AWSService
             }
 
         }
+
+        // foreach ($directories as $subdirectory) {
+        //     Log::info("subdirectory = ".$subdirectory);
+        //     // $relativePath = $s3Directory . '/' . $subdirectory->getRelativePath();
+        //     // Log::info("relativePath = ".$relativePath);
+        //     // Storage::disk('s3')->makeDirectory($relativePath);
+
+
+        //     $subdirectoryFileInfo = new \SplFileInfo($subdirectory);
+        //     $relativePath = $s3Directory . '/' . File::relativePath($sourceDirectory, $subdirectory);;
+        //     Storage::disk('s3')->makeDirectory($relativePath);
+            
+        // }
+
+    }
+
+
+    public function copyDirectoryContentsToS3($sourceDirectory, $s3Directory)
+    {
+        Log::info("source Directory = ".$sourceDirectory);
+        Log::info("s3Directory = ".$s3Directory);
+        $files = File::allFiles($sourceDirectory);
+        $directories = File::directories($sourceDirectory);
+
+        try {
+
+            // Create an S3 client
+            $client = new \Aws\S3\S3Client([
+                'region'  => 'ap-south-1',
+                'version' => 'latest',
+                'credentials' => [
+                    'key'    => env('AWS_ACCESS_KEY_ID', 'AKIA6AQXIE5GFIC2KZSP'),
+                    'secret' => env('AWS_SECRET_ACCESS_KEY', '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')
+                ]
+            ]);
+
+            // Where the files will be source from
+            $source = $sourceDirectory;
+
+            // Where the files will be transferred to
+            $dest = 's3://k-max/'.$s3Directory;
+
+            // Create a transfer object
+            $manager = new \Aws\S3\Transfer($client, $source, $dest);
+
+            // Perform the transfer synchronously
+            $promise = $manager->transfer();
+        } catch (S3Exception $e) {
+            // Handle specific S3 exception
+            Log::info('S3Exception: ' . $e->getMessage());
+            echo "S3Exception";
+            // Additional error handling logic
+        } catch (AwsException $e) {
+            // Handle other AWS SDK exceptions
+            Log::info('AwsException: ' . $e->getMessage());
+            echo "AwsException";
+            // Additional error handling logic
+        } catch (\Exception $e) {
+            // Handle generic exceptions
+            Log::info('Exception: ' . $e->getMessage());
+            echo "Exception";
+            // Additional error handling logic
+        }
+
+
+        
+
+        // Do something when the transfer is complete using the then() method
+        // $promise->then(function () {
+        //     echo 'Done!';
+        // });
+
+        // $promise->otherwise(function ($reason) {
+        //     echo 'Transfer failed: ';
+        //     var_dump($reason);
+        // });
 
     }
 
