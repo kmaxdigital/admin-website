@@ -42,6 +42,7 @@
                   <thead>
                     <tr>
                       <th>{{trans('words.movie_name')}}</th>
+                      <th>{{trans('words.is_unique')}}</th>
                       <th>{{trans('words.movie_poster')}}</th>
                       <th>{{trans('words.movie_access')}}</th>
                       <th>{{trans('words.upcoming')}}</th>
@@ -56,6 +57,7 @@
                    @foreach($movies_list as $i => $movies)
                     <tr>
                       <td>{{ stripslashes($movies->video_title) }} [{{ $movies->id }}]</td>
+                      <td>{{ $movies->unique_id }} </td>
                       <td>@if(isset($movies->video_image_thumb)) <img src="{{URL::to('/'.$movies->video_image_thumb)}}" alt="video image" class="thumb-lg bdr_radius"> @endif</td>
                       <td>{{ $movies->video_access }}</td>
                       
