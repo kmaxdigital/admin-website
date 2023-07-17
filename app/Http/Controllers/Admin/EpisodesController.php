@@ -41,10 +41,16 @@ class EpisodesController extends MainAdminController
         
         $page_title=trans('words.episodes_text');
 
-        $series_list = Series::orderBy('series_name')->get();          
+        $series_list = Series::orderBy('series_name')->get();
+
+        echo "<pre>";
+        print_r($series_list);
+        echo "</pre>";        
         
         if(isset($_GET['s']))
         {
+            echo "if";
+            echo "<br>";
             $keyword = $_GET['s'];  
 
             $episodes_list = DB::table('episodes')
@@ -59,6 +65,8 @@ class EpisodesController extends MainAdminController
         }    
         else if(isset($_GET['series_id']))
         {
+            echo "else if";
+            echo "<br>";
             $series_id = $_GET['series_id'];
 
             $episodes_list = DB::table('episodes')
@@ -73,6 +81,8 @@ class EpisodesController extends MainAdminController
         else
         {
 
+            echo "else";
+            echo "<br>";
            $episodes_list = DB::table('episodes')
                            ->join('series', 'episodes.episode_series_id', '=', 'series.id')
                            ->select('episodes.*', 'series.series_name')
