@@ -80,6 +80,12 @@ class EpisodesController extends MainAdminController
                            ->paginate(10);
 
         }
+
+
+        echo "<pre>";
+        print_r($episodes_list);
+        echo "</pre>";
+        die();
          
         return view('admin.pages.episodes_list',compact('page_title','episodes_list','series_list'));
     }
