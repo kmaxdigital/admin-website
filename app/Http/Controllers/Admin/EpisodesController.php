@@ -44,7 +44,7 @@ class EpisodesController extends MainAdminController
         $series_list = Series::orderBy('series_name')->get();
 
         echo "<pre>";
-        print_r($series_list);
+        print_r($series_list->toArray());
         echo "</pre>";        
         
         if(isset($_GET['s']))
