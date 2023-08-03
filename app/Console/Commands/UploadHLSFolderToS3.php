@@ -57,7 +57,9 @@ class UploadHLSFolderToS3 extends Command
         if($videoDetails[$this->status])
         {
 
-            $environment                            = env('APP_ENV');
+            $environment                            = config( 'app.env' );
+		
+	    Log::info("ENV = ". $environment);
         
             $s3Directory                            = ($environment !== 'production') ? 'stage/' : 'video-files/';
 
@@ -81,7 +83,7 @@ class UploadHLSFolderToS3 extends Command
                 echo "uploaded to s3";
 
                 sleep(300);
-                File::deleteDirectory($directory);
+//                File::deleteDirectory($directory);
 
                 $isUplaod                          = $this->commonSer->updateVideoIsUpload($video_id,$video_unique_id);
 
