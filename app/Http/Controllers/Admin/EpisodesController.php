@@ -232,6 +232,10 @@ class EpisodesController extends MainAdminController
          $episode_obj->subtitle_url2 = $inputs['subtitle_url2'];
          $episode_obj->subtitle_language3 = $inputs['subtitle_language3'];
          $episode_obj->subtitle_url3 = $inputs['subtitle_url3'];
+         
+         $episode_obj->is_processed = $inputs['is_processed'];  
+         $episode_obj->is_verify = $inputs['is_verified'];  
+         $episode_obj->is_upload = $inputs['is_upload'];  
 
          $episode_obj->seo_title = addslashes($inputs['seo_title']);  
          $episode_obj->seo_description = addslashes($inputs['seo_description']);  
