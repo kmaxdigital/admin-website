@@ -42,9 +42,13 @@
                   <thead>
                     <tr>
                       <th>{{trans('words.shows_text')}}</th>
+                      <th>{{trans('words.is_unique')}}</th>
                       <th>{{trans('words.episode_title')}}</th>
                       <th>{{trans('words.episode_poster')}}</th>
                       <th>{{trans('words.episode_access')}}</th>
+                      <th>{{trans('words.is_verified')}}</th>
+                      <th>{{trans('words.is_processed')}}</th>
+                      <th>{{trans('words.is_uploaded')}}</th>
                       <th>{{trans('words.status')}}</th>                       
                       <th>{{trans('words.action')}}</th>
                     </tr>
@@ -52,10 +56,46 @@
                   <tbody>
                    @foreach($episodes_list as $i => $episodes)
                     <tr>
-                      <td>{{ stripslashes($episodes->series_name) }}</td>
+                      <td>{{ stripslashes($episodes->series_name) }} [{{ $episodes->id }}]</td>
+                      <td>{{ $episodes->unique_id }} </td>
                       <td>{{ stripslashes($episodes->video_title) }}</td>
                       <td>@if(isset($episodes->video_image)) <img src="{{URL::to('/'.$episodes->video_image)}}" alt="video image" class="thumb-xl bdr_radius"> @endif</td>
                       <td>{{ $episodes->video_access }}</td>
+
+                      <td>
+                        @if($episodes->is_verify=='verified')
+                          <span class="badge badge-success">
+                            {{trans('words.verified')}}</span> 
+                        @elseif($episodes->is_verify=='pending')
+                          <span class="badge badge-danger">
+                            {{trans('words.pending')}}</span> 
+                          </span>
+                        @else<span class="badge badge-warning">
+                            {{trans('words.inprocess')}}</span> 
+                          </span>
+                        @endif
+                      </td>
+                      
+                      <td>
+                        @if($episodes->is_processed==1)
+                          <span class="badge badge-success">
+                            Yes</span> 
+                        @else<span class="badge badge-danger">
+                            No
+                          </span>
+                        @endif
+                      </td>
+                      <td>
+                        @if($episodes->is_upload=='yes')
+                          <span class="badge badge-success">
+                            Yes</span> 
+                        @else<span class="badge badge-danger">
+                            No
+                          </span>
+                        @endif
+                      </td>
+                      
+                      
                       <td>@if($episodes->status==1)<span class="badge badge-success">{{trans('words.active')}}</span> @else<span class="badge badge-danger">{{trans('words.inactive')}}</span>@endif</td>                     
                       <td>
                       <a href="{{ url('admin/episodes/edit_episode/'.$episodes->id) }}" class="btn btn-icon waves-effect waves-light btn-success m-b-5 m-r-5" data-toggle="tooltip" title="{{trans('words.edit')}}"> <i class="fa fa-edit"></i> </a>

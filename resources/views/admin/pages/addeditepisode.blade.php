@@ -179,7 +179,58 @@
                       </div>
                   </div>
 
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">{{trans('words.status')}}</label>
+                      <div class="col-sm-8">
+                            <select class="form-control" name="status">                               
+                                <option value="1" @if(isset($episode_info->status) AND $episode_info->status==1) selected @endif>{{trans('words.active')}}</option>
+                                <option value="0" @if(isset($episode_info->status) AND $episode_info->status==0) selected @endif>{{trans('words.inactive')}}</option>                            
+                            </select>
+                      </div>
+                  </div> 
+
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">{{trans('words.is_processed')}}</label>
+                      <div class="col-sm-8">
+                            <select class="form-control" name="is_processed" required>
+                                <option value="">{{trans('words.select')}}</option>
+                                <option value="1" @if(isset($episode_info->is_processed) AND $episode_info->is_processed=='1') selected @endif>{{trans('words.is_processed_yes')}}</option>
+                                <option value="0" @if(isset($episode_info->status) AND $episode_info->status==0) selected @endif>{{trans('words.is_processed_no')}}</option>                            
+                            </select>
+                      </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">{{trans('words.is_verified')}}</label>
+                      <div class="col-sm-8">
+                            <select class="form-control" name="is_verified" required>                               
+                                <option value="">{{trans('words.select')}}</option>
+                                <option value="pending" @if(isset($episode_info->is_verify) AND $episode_info->is_verify=='pending') selected @endif>{{trans('words.pending')}}</option>
+
+                                <option value="inprocess" @if(isset($episode_info->is_verify) AND $episode_info->is_verify=='inprocess') selected @endif>{{trans('words.inprocess')}}</option>
+
+                                <option value="verified" @if(isset($episode_info->is_verify) AND $episode_info->is_verify=='verified') selected @endif>{{trans('words.verified')}}</option>
+                                
+                            </select>
+                      </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">{{trans('words.is_uploaded')}}</label>
+                      <div class="col-sm-8">
+                            <select class="form-control" name="is_upload" required>                               
+                                <option value="">{{trans('words.select')}}</option>
+                                <option value="yes" @if(isset($episode_info->is_upload) AND $episode_info->is_upload=='yes') selected @endif>{{trans('words.is_processed_yes')}}</option>
+
+                                <option value="no" @if(isset($episode_info->is_upload) AND $episode_info->is_upload=='no') selected @endif>{{trans('words.is_processed_no')}}</option>
+
+                                
+                            </select>
+                      </div>
+                  </div>
+
                   <hr/>
+                  
                   <h4 class="m-t-0 m-b-30 header-title" style="font-size: 20px;">{{trans('words.seo')}}</h4>
                   
                   <div class="form-group row">
