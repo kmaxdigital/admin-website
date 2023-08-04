@@ -140,10 +140,15 @@ class EpisodesController extends MainAdminController
 
             $episode_obj = new Episodes;
 
+            $randomNumber = mt_rand(1000000000000000, 9999999999999999);
+            $episode_obj->unique_id = $randomNumber;
+
         }
 
          $video_slug = Str::slug($inputs['video_title'], '-');         
    
+         
+
          $episode_obj->video_access = $inputs['video_access'];
          $episode_obj->episode_series_id = $inputs['series'];
          $episode_obj->episode_season_id = $inputs['season'];

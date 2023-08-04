@@ -123,6 +123,8 @@ class MoviesController extends MainAdminController
         }else{
 
             $movie_obj = new Movies;
+            $randomNumber = mt_rand(1000000000000000, 9999999999999999);
+            $movie_obj->unique_id = $randomNumber;
 
         }
 

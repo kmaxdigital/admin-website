@@ -15,21 +15,21 @@ use App\Services\AWSService;
 use Log;
 
 
-class NewMovieVideosHLS extends Command
+class NewMovieEpisodesHLS extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'Video:NewMovieVideosHLS';
+    protected $signature = 'Video:NewEpisodeVideosHLS';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'This command will do segmentation of Other than episodes';
+    protected $description = 'This command will do segmentation of Episode';
 
     public function __construct()
     {
@@ -41,7 +41,7 @@ class NewMovieVideosHLS extends Command
         $this->data                                 = 'data';
         $this->total                                = 'total_count';
         $this->hls_time                             = 60;
-        $this->timeout                              = 14400; // Increase timeout to 3600 seconds
+        $this->timeout                              = 14400;
         
         $this->commonSer                            = new CommonService();
         $this->awsSer                               = new AWSService();
@@ -61,10 +61,9 @@ class NewMovieVideosHLS extends Command
     public function handle()
     {
 
-        $videoDetails                               = $this->commonSer->getVideoDetails();
+        $videoDetails                               = $this->commonSer->getEpisodeDetails();
 
         Log::info("Video Details". json_encode($videoDetails, true));
-
 
         if($videoDetails[$this->status])
         {
@@ -73,19 +72,15 @@ class NewMovieVideosHLS extends Command
             $video_unique_id                        = $videoDetails[$this->data]->unique_id;
             
 
-            $inputFile                              = config( 'constants.movie_path.input' ); 
-            $outputBaseDirectory                    = config( 'constants.movie_path.output' );
+            $inputFile                              = config('constants.episode_path.input'); 
+            $outputBaseDirectory                    = config('constants.episode_path.output');
 
             $outputFilename                         = 'output';
 
             Log::info("INPUT FILE NAME = ". $inputFile);
             Log::info("OUTPT FILE NAME = ". $outputBaseDirectory);
 
-            // $awsAccessKey                           = env('AWS_ACCESS_KEY_ID', 'AKIA6AQXIE5GFIC2KZSP');
-            // $awsSecretKey                           = env('AWS_SECRET_ACCESS_KEY', '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');
-            // $awsRegion                              = env('AWS_DEFAULT_REGION', 'ap-south-1');
-            // $awsBucket                              = env('AWS_BUCKET', 'k-max');
-
+           
             $inputVideo                             = $inputFile.$video_id.'.mp4';
             Log::info("INPUT VIDEO NAME = ". $inputVideo);
 
@@ -130,7 +125,7 @@ class NewMovieVideosHLS extends Command
             if (file_exists($masterPlaylistPath)) 
             {
 
-                $update                             = $this->commonSer->updateVideoIsProcessed($video_id, $video_unique_id);
+                $update                             = $this->commonSer->updateEpisodeIsProcessed($video_id, $video_unique_id);
                 if($update[$this->status])
                 {
                     echo 'HLS generated successfully.';
